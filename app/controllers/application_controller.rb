@@ -40,7 +40,7 @@ class ApplicationController < Sinatra::Base
   post "/account" do
     deposit_amount = params[:deposit]
     @user = current_user
-    @user.balance += deposit_amount
+    @user.balance += deposit_amount.to_f
   end
 
   get "/deposit" do
