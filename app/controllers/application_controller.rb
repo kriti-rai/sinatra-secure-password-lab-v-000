@@ -43,6 +43,7 @@ class ApplicationController < Sinatra::Base
 
   post "/deposit" do
     @deposit = params[:deposit]
+    raise params.inspect
     params[:balance]+=@deposit
     erb :account
   end
