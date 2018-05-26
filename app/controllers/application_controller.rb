@@ -83,6 +83,7 @@ class ApplicationController < Sinatra::Base
     #if current balance > @withdrawl_amount
     #current balance =- @withdrawl_amount
   end
+
   helpers do
     def logged_in?
       !!session[:user_id]
