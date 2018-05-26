@@ -38,9 +38,19 @@ class ApplicationController < Sinatra::Base
   end
 
   post "/account" do
-    deposit_amount = params[:deposit]
-    @user = current_user
-    @user.balance += deposit_amount.to_f
+    if !!params[:deposit]
+      deposit_amount = params[:deposit]
+      @user = current_user
+      @user.balance += deposit_amount.to_f
+    elsif !!params[:withdrawl]
+      withdrawl_amount = params[:withdrawl]
+      if withdrawl_amount > @user.balance
+        p "Not enough balance to make the withdrawl."
+      else
+        @user.balance -= withdrawl_amount.to_f
+      end
+    end
+    
     erb :account
   end
 
