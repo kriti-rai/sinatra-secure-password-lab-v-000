@@ -43,18 +43,17 @@ class ApplicationController < Sinatra::Base
       deposit_amount = params[:deposit]
       @user.balance += deposit_amount.to_f
       @user.save
-    end
-    if !!params[:withdrawl]
+    elsif !!params[:withdrawl]
       "HI"
-      # withdrawl_amount = params[:withdrawl]
-      # @user.save
-      # if withdrawl_amount > @user.balance
-      #   binding.pry
-      #   p "Not enough balance to make the withdrawl."
-      # else
-      #   @user.balance = @user.balance - withdrawl_amount.to_f
-      #   @user.save
-      # end
+      withdrawl_amount = params[:withdrawl]
+      @user.save
+      if withdrawl_amount > @user.balance
+        binding.pry
+        p "Not enough balance to make the withdrawl."
+      else
+        @user.balance = @user.balance - withdrawl_amount.to_f
+        @user.save
+      end
     end
 
     erb :account
