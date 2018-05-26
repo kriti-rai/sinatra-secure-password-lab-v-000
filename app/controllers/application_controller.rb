@@ -45,10 +45,12 @@ class ApplicationController < Sinatra::Base
       @user.save
     elsif !!params[:withdrawl]
       withdrawl_amount = params[:withdrawl]
+      @user.save
       if withdrawl_amount > @user.balance
         p "Not enough balance to make the withdrawl."
       else
         @user.balance = @user.balance - withdrawl_amount.to_f
+        @user.save
       end
     end
 
