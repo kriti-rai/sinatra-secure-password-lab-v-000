@@ -80,8 +80,8 @@ class ApplicationController < Sinatra::Base
 
   post "/withdraw" do
     @withdrawl_amount = params[:withdrawl]
-    #if current balance >
-    #current balance -
+    #if current balance > @withdrawl_amount
+    #current balance =- @withdrawl_amount
   end
   helpers do
     def logged_in?
