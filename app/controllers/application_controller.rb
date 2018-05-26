@@ -41,6 +41,7 @@ class ApplicationController < Sinatra::Base
     deposit_amount = params[:deposit]
     @user = current_user
     @user.balance += deposit_amount.to_f
+    erb :account
   end
 
   get "/deposit" do
