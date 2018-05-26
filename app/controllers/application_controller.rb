@@ -37,6 +37,11 @@ class ApplicationController < Sinatra::Base
     end
   end
 
+  post "/account" do
+    raise params.inspect
+
+  end
+
   get "/deposit" do
     erb :deposit
   end
