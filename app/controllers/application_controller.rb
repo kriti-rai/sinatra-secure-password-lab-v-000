@@ -29,6 +29,8 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/account' do
+    raise params.inspect
+
     if logged_in?
       @user = current_user
       erb :account
@@ -43,7 +45,6 @@ class ApplicationController < Sinatra::Base
 
   post "/deposit" do
     @deposit = params[:deposit]
-    raise params.inspect
     params[:balance]+=@deposit
     erb :account
   end
