@@ -78,7 +78,7 @@ class ApplicationController < Sinatra::Base
     erb :withdrawl
   end
 
-  post "/withdraw" do
+  post "/withdrawl" do
     @withdrawl_amount = params[:withdrawl]
     #if current balance > @withdrawl_amount
     #current balance =- @withdrawl_amount
