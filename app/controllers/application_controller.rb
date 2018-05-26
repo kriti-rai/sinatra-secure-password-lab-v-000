@@ -38,9 +38,9 @@ class ApplicationController < Sinatra::Base
   end
 
   post "/account" do
+    @user = current_user
     if !!params[:deposit]
       deposit_amount = params[:deposit]
-      @user = current_user
       @user.balance += deposit_amount.to_f
     elsif !!params[:withdrawl]
       withdrawl_amount = params[:withdrawl]
