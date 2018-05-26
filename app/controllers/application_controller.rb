@@ -58,8 +58,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/error" do
-    "Not enough balance"
-    redirect "/account"
+    erb :error
   end
   get "/deposit" do
     erb :deposit
