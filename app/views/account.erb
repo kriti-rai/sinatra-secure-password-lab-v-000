@@ -2,4 +2,12 @@
 
 <p>We are currently working on your account.</p>
 
+#show balance and username only if user is logged in
+#otherwise show to the homepage
+<% if helpers.is_logged_in? %>
+  Hi, <% = @user %>. Your balance is <% @user.balance %>
+<% else %>
+  <p>You need to be logged in to view your balance. Please return to <a href="/"</a>the homepage and try again.</p>
+  
+
 <p><a href="/logout">Log Out</a></p>
