@@ -38,8 +38,9 @@ class ApplicationController < Sinatra::Base
   end
 
   post "/account" do
-    raise params.inspect
-
+    deposit_amount = params[:deposit]
+    @user = current_user
+    @user.balance += deposit_amount
   end
 
   get "/deposit" do
