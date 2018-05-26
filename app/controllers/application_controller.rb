@@ -37,11 +37,6 @@ class ApplicationController < Sinatra::Base
     end
   end
 
-  post '/account' do
-    redirect '/account'
-  end
-
-
   get "/login" do
     erb :login
   end
@@ -74,10 +69,20 @@ class ApplicationController < Sinatra::Base
     erb :deposit
   end
 
-  get "/withdraw" do
-    erb :withdraw
+  post "/deposit" do
+    @deposit = params[:deposit]
+
   end
 
+  get "/withdrawl" do
+    erb :withdrawl
+  end
+
+  post "/withdraw" do
+    @withdrawl_amount = params[:withdrawl]
+    #if current balance >
+    #current balance -
+  end
   helpers do
     def logged_in?
       !!session[:user_id]
