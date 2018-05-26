@@ -43,7 +43,8 @@ class ApplicationController < Sinatra::Base
       deposit_amount = params[:deposit]
       @user.balance += deposit_amount.to_f
       @user.save
-    else
+    end
+    if !!params[:withdrawl]
       "HI"
       # withdrawl_amount = params[:withdrawl]
       # @user.save
