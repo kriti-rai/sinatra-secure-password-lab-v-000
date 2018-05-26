@@ -29,8 +29,6 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/account' do
-    raise params.inspect
-
     if logged_in?
       @user = current_user
       erb :account
