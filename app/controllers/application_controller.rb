@@ -37,6 +37,25 @@ class ApplicationController < Sinatra::Base
     end
   end
 
+  get "/deposit" do
+    erb :deposit
+  end
+
+  post "/deposit" do
+    @deposit = params[:deposit]
+    params[:balance]+=@deposit
+    erb :account
+  end
+
+  get "/withdrawl" do
+    erb :withdrawl
+  end
+
+  post "/withdrawl" do
+    @withdrawl_amount = params[:withdrawl]
+    #if current balance > @withdrawl_amount
+    #current balance =- @withdrawl_amount
+  end
   get "/login" do
     erb :login
   end
@@ -63,25 +82,6 @@ class ApplicationController < Sinatra::Base
   get "/logout" do
     session.clear
     redirect "/"
-  end
-
-  get "/deposit" do
-    erb :deposit
-  end
-
-  post "/deposit" do
-    @deposit = params[:deposit]
-
-  end
-
-  get "/withdrawl" do
-    erb :withdrawl
-  end
-
-  post "/withdrawl" do
-    @withdrawl_amount = params[:withdrawl]
-    #if current balance > @withdrawl_amount
-    #current balance =- @withdrawl_amount
   end
 
   helpers do
