@@ -57,7 +57,7 @@ class ApplicationController < Sinatra::Base
     erb :account
   end
 
-  get "error" do
+  get "/error" do
     "Not enough balance"
     erb :account
   end
