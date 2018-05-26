@@ -33,7 +33,7 @@ class ApplicationController < Sinatra::Base
       @user = current_user
       erb :account
     else
-      erb :failure
+      redirect '/failure'
     end
   end
 
